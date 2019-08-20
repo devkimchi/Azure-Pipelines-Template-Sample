@@ -3,6 +3,8 @@ name: $(Version).$(rev:r)
 variables:
 - name: Version
   value: '1.0.0'
+- name: Greeting
+  value: "G'day, mate"
 
 trigger:
   branches:
@@ -69,3 +71,7 @@ stages:
   - template: 'template-jobs-build.yaml'
     parameters:
       message: 'This is from the jobs template'
+
+- template: 'template-stages-build.yaml'
+  parameters:
+    message: 'This is from the stages template'
