@@ -26,6 +26,11 @@ stages:
       value: 'Hello World'
     steps:
     - task: CmdLine@2
-      displayName: 'Echo Greeting'
+      displayName: 'Echo Greeting in CommandLine'
       inputs:
         script: 'Echo $(Greeting)'
+    - task: PowerShell@2
+      displayName: 'Echo Greeting in PowerShell'
+      inputs:
+        targetType: Inline
+        script: 'Write-Host "$(Greeting)"'
