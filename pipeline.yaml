@@ -14,6 +14,7 @@ pr: none
 stages:
 - stage: BuildWithoutTemplate
   displayName: 'Build without Template'
+
   jobs:
   - job: HostedVs2017
     displayName: 'Hosted VS2017'
@@ -21,9 +22,11 @@ stages:
       name: 'Hosted VS2017'
     workspace:
       clean: all
+
     variables:
     - name: Greeting
       value: 'Hello World'
+
     steps:
     - task: CmdLine@2
       displayName: 'Echo Greeting in CommandLine'
@@ -37,6 +40,7 @@ stages:
 
 - stage: BuildWithStepsTemplate
   displayName: 'Build with Steps Template'
+
   jobs:
   - job: HostedVs2017
     displayName: 'Hosted VS2017'
@@ -44,10 +48,12 @@ stages:
       name: 'Hosted VS2017'
     workspace:
       clean: all
+
     variables:
     - name: Greeting
       value: 'Hello World'
+
     steps:
     - template: 'template-steps-build.yaml'
       parameters:
-        message: 'Lorem Ipsum'
+        message: 'This is from the steps template'
