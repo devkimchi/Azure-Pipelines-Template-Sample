@@ -1,0 +1,11 @@
+parameters:
+  message: ''
+
+stages:
+- stage: BuildWithNestedStagesTemplate
+  displayName: 'Build with Nested Stages Template'
+
+  jobs:
+  - template: 'template-jobs-nested-build.yaml'
+    parameters:
+      message: '${{ parameters.message }}'

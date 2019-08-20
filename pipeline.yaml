@@ -75,3 +75,7 @@ stages:
 - template: 'template-stages-build.yaml'
   parameters:
     message: 'This is from the stages template'
+
+- template: 'template-stages-nested-build.yaml'
+  parameters:
+    message: 'This is from the nested stages template'
