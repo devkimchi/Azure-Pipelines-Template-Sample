@@ -34,3 +34,20 @@ stages:
       inputs:
         targetType: Inline
         script: 'Write-Host "$(Greeting)"'
+
+- stage: BuildWithStepsTemplate
+  displayName: 'Build with Steps Template'
+  jobs:
+  - job: HostedVs2017
+    displayName: 'Hosted VS2017'
+    pool:
+      name: 'Hosted VS2017'
+    workspace:
+      clean: all
+    variables:
+    - name: Greeting
+      value: 'Hello World'
+    steps:
+    - template: 'template-steps-build.yaml'
+      parameters:
+        message: 'Lorem Ipsum'
