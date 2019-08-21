@@ -108,3 +108,26 @@ stages:
             inputs:
               targetType: Inline
               script: 'Write-Host "$(Greeting)"'
+
+- stage: ReleaseWithStepsTemplate
+  displayName: 'Release with Steps Template'
+
+  jobs:
+  - deployment: HostedVs2017
+    displayName: 'Hosted VS2017'
+    pool:
+      name: 'Hosted VS2017'
+
+    environment: release-with-steps-template
+
+    variables:
+    - name: Greeting
+      value: 'Hello World'
+
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - template: 'template-steps-release.yaml'
+            parameters:
+              message: 'This is from the steps template'
