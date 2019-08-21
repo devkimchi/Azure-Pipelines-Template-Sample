@@ -79,3 +79,32 @@ stages:
 - template: 'template-stages-nested-build.yaml'
   parameters:
     message: 'This is from the nested stages template'
+
+- stage: ReleaseWithoutTemplate
+  displayName: 'Release without Template'
+
+  jobs:
+  - deployment: HostedVs2017
+    displayName: 'Hosted VS2017'
+    pool:
+      name: 'Hosted VS2017'
+
+    environment: release-without-template
+
+    variables:
+    - name: Greeting
+      value: 'Hello World'
+
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - task: CmdLine@2
+            displayName: 'Echo Greeting in CommandLine'
+            inputs:
+              script: 'Echo $(Greeting)'
+          - task: PowerShell@2
+            displayName: 'Echo Greeting in PowerShell'
+            inputs:
+              targetType: Inline
+              script: 'Write-Host "$(Greeting)"'
