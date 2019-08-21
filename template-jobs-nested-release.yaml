@@ -1,13 +1,14 @@
 parameters:
   templateLevel: ''
+  agentName: ''
   message: ''
 
 jobs:
-- deployment: HostedVs2017
-  displayName: 'Hosted VS2017'
+- deployment: NestedDeploymentJob
+  displayName: 'Nested Deployment Job'
 
   pool:
-    name: 'Hosted VS2017'
+    name: '${{ parameters.agentName }}'
 
   environment: release-with-${{ parameters.templateLevel }}-template
 
