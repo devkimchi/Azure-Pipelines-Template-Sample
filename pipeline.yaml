@@ -144,3 +144,8 @@ stages:
     parameters:
       templateLevel: jobs
       message: 'This is from the jobs template'
+
+- template: 'template-stages-release.yaml'
+  parameters:
+    templateLevel: stages
+    message: 'This is from the stages template'
