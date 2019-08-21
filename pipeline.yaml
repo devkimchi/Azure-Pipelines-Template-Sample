@@ -131,3 +131,16 @@ stages:
           - template: 'template-steps-release.yaml'
             parameters:
               message: 'This is from the steps template'
+
+- stage: ReleaseWithJobsTemplate
+  displayName: 'Release with Jobs Template'
+
+  variables:
+  - name: Greeting
+    value: 'Hello World'
+
+  jobs:
+  - template: 'template-jobs-release.yaml'
+    parameters:
+      templateLevel: jobs
+      message: 'This is from the jobs template'
