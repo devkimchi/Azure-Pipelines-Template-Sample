@@ -10,12 +10,6 @@ jobs:
     clean: all
 
   steps:
-  - task: CmdLine@2
-    displayName: 'Echo Greeting in CommandLine'
-    inputs:
-      script: |
-        Echo $(Greeting)
-        Echo ${{ parameters.message }}
   - task: PowerShell@2
     displayName: 'Echo Greeting in PowerShell'
     inputs:

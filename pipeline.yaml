@@ -30,10 +30,6 @@ stages:
       value: 'Hello World'
 
     steps:
-    - task: CmdLine@2
-      displayName: 'Echo Greeting in CommandLine'
-      inputs:
-        script: 'Echo $(Greeting)'
     - task: PowerShell@2
       displayName: 'Echo Greeting in PowerShell'
       inputs:
@@ -100,10 +96,6 @@ stages:
       runOnce:
         deploy:
           steps:
-          - task: CmdLine@2
-            displayName: 'Echo Greeting in CommandLine'
-            inputs:
-              script: 'Echo $(Greeting)'
           - task: PowerShell@2
             displayName: 'Echo Greeting in PowerShell'
             inputs:
