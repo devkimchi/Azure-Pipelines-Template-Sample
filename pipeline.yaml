@@ -149,3 +149,8 @@ stages:
   parameters:
     templateLevel: stages
     message: 'This is from the stages template'
+
+- template: 'template-stages-nested-release.yaml'
+  parameters:
+    templateLevel: nested-stages
+    message: 'This is from the nested stages template'

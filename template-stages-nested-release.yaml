@@ -1,0 +1,13 @@
+parameters:
+  templateLevel: ''
+  message: ''
+
+stages:
+- stage: ReleaseWithNestedStagesTemplate
+  displayName: 'Release with Nested Stages Template'
+
+  jobs:
+  - template: 'template-jobs-nested-release.yaml'
+    parameters:
+      templateLevel: '${{ parameters.templateLevel }}'
+      message: '${{ parameters.message }}'
