@@ -1,6 +1,6 @@
 parameters:
   templateLevel: ''
-  agentName: ''
+  vmImage: ''
   message: ''
 
 stages:
@@ -11,5 +11,5 @@ stages:
   - template: 'template-jobs-nested-release.yaml'
     parameters:
       templateLevel: '${{ parameters.templateLevel }}'
-      agentName: '${{ parameters.agentName }}'
+      vmImage: '${{ parameters.vmImage }}'
       message: '${{ parameters.message }}'

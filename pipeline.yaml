@@ -78,6 +78,7 @@ stages:
 
 - template: 'template-stages-nested-build.yaml'
   parameters:
+    vmImage: 'macOS-10.13'
     message: 'This is from the nested stages template'
 
 - stage: ReleaseWithoutTemplate
@@ -153,5 +154,5 @@ stages:
 - template: 'template-stages-nested-release.yaml'
   parameters:
     templateLevel: nested-stages
-    agentName: 'Hosted VS2017'
+    vmImage: 'ubuntu-16.04'
     message: 'This is from the nested stages template'

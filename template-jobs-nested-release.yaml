@@ -1,14 +1,14 @@
 parameters:
   templateLevel: ''
-  agentName: ''
+  vmImage: ''
   message: ''
 
 jobs:
 - deployment: NestedDeploymentJob
-  displayName: 'Nested Deployment Job'
+  displayName: 'Nested Deployment Job on ${{ parameters.vmImage }}'
 
   pool:
-    name: '${{ parameters.agentName }}'
+    vmImage: '${{ parameters.vmImage }}'
 
   environment: release-with-${{ parameters.templateLevel }}-template
 

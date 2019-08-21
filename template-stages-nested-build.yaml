@@ -1,4 +1,5 @@
 parameters:
+  vmImage: ''
   message: ''
 
 stages:
@@ -8,4 +9,5 @@ stages:
   jobs:
   - template: 'template-jobs-nested-build.yaml'
     parameters:
+      vmImage: '${{ parameters.vmImage }}'
       message: '${{ parameters.message }}'
