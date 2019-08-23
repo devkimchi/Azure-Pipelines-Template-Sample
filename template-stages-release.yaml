@@ -1,5 +1,6 @@
 parameters:
   templateLevel: ''
+  vmImage: ''
   message: ''
 
 stages:
@@ -7,10 +8,11 @@ stages:
   displayName: 'Release with Stages Template'
 
   jobs:
-  - deployment: HostedVs2017
-    displayName: 'Hosted VS2017'
+  - deployment: TemplatedStage
+    displayName: 'Templated Stage'
+
     pool:
-      name: 'Hosted VS2017'
+      vmImage: '${{ parameters.vmImage }}'
 
     environment: release-with-${{ parameters.templateLevel }}-template
 

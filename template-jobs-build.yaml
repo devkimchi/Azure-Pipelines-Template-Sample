@@ -5,8 +5,10 @@ parameters:
 jobs:
 - job: TemplatedJob
   displayName: 'Templated Job'
+
   pool:
     vmImage: '${{ parameters.vmImage }}'
+
   workspace:
     clean: all
 

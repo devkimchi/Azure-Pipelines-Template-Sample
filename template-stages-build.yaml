@@ -1,4 +1,5 @@
 parameters:
+  vmImage: ''
   message: ''
 
 stages:
@@ -6,10 +7,12 @@ stages:
   displayName: 'Build with Stages Template'
 
   jobs:
-  - job: HostedVs2017
-    displayName: 'Hosted VS2017'
+  - job: TemplatedStage
+    displayName: 'Templated Stage'
+
     pool:
-      name: 'Hosted VS2017'
+      vmImage: '${{ parameters.vmImage }}'
+
     workspace:
       clean: all
 
