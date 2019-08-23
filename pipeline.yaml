@@ -66,6 +66,7 @@ stages:
   jobs:
   - template: 'template-jobs-build.yaml'
     parameters:
+      vmImage: 'vs2017-win2016'
       message: 'This is from the jobs template'
 
 - template: 'template-stages-build.yaml'
@@ -136,6 +137,7 @@ stages:
   - template: 'template-jobs-release.yaml'
     parameters:
       templateLevel: jobs
+      vmImage: 'vs2017-win2016'
       message: 'This is from the jobs template'
 
 - template: 'template-stages-release.yaml'
